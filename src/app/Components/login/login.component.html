@@ -1,0 +1,20 @@
+<div class="container">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Welcome to OShop</mat-card-title>
+    </mat-card-header>
+    <form [formGroup]="loginForm" >
+      <mat-card-content>
+      <mat-form-field class="example-form-field">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email" type="email">
+      </mat-form-field>
+      <mat-form-field class="example-form-field">
+        <mat-label>Password</mat-label>
+        <input matInput formControlName="password" type="password">
+      </mat-form-field>
+      <button mat-flat-button (click)="login()" color="primary">Login</button>
+    </mat-card-content>
+    </form>
+  </mat-card>
+</div>
