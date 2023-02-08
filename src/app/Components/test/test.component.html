@@ -1,0 +1,119 @@
+<div class="container">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Welcome to OShop</mat-card-title>
+    </mat-card-header>
+
+
+    <form [formGroup]="testForm" >
+
+      <mat-card-content>
+
+      <mat-form-field class="example-form-field">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email" type="email">
+        <mat-error *ngIf="testForm.controls.email.hasError('required')">
+          Enter You Email
+        </mat-error>
+         <mat-error *ngIf="testForm.controls.email.hasError('email')">
+          Enter a valid Email
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="example-form-field">
+        <mat-label>First Name</mat-label>
+        <input matInput formControlName="fname" type="text">
+         <mat-error *ngIf="testForm.controls.fname.hasError('required')">
+          Enter Your First Name
+        </mat-error>
+         <mat-error *ngIf="testForm.controls.fname.hasError('minlength')">
+          First Name must be min 2 char Long
+        </mat-error>
+        <mat-error *ngIf="testForm.controls.fname.hasError('maxlength')">
+          First Name must be max 12 char Long
+        </mat-error>
+      </mat-form-field>
+
+       <mat-form-field class="example-form-field">
+        <mat-label>last Name</mat-label>
+        <input matInput formControlName="lname" type="text">
+         <mat-error *ngIf="testForm.controls.lname.hasError('required')">
+          Enter Your last Name
+        </mat-error>
+         <mat-error *ngIf="testForm.controls.lname.hasError('minlength')">
+          Last Name must be min 2 char Long
+        </mat-error>
+         <mat-error *ngIf="testForm.controls.lname.hasError('maxlength')">
+          Last Name must be max 12 char Long
+        </mat-error>
+      </mat-form-field>
+
+      <mat-radio-group formControlName="gender"   aria-label="Gender">
+       <mat-label>gender</mat-label><br>
+      <mat-radio-button value="male">male</mat-radio-button>
+      <mat-radio-button value="Female"> Female</mat-radio-button>
+<mat-error *ngIf="testForm.controls.gender.hasError('required')">
+          Please Select Your Gender
+        </mat-error>
+    </mat-radio-group>
+
+    <mat-form-field class="example-form-field">
+        <mat-label>Education</mat-label>
+        <input matInput formControlName="education" type="text">
+        <mat-error *ngIf="testForm.controls.education.hasError('required')">
+          education must required
+        </mat-error>
+        <mat-error *ngIf="testForm.controls.education.hasError('maxlength')">
+          education must be max 10 char Long
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="example-form-field">
+        <mat-label>Address</mat-label>
+        <input matInput formControlName="address" type="text">
+         <mat-error *ngIf="testForm.controls.address.hasError('required')">
+          address must required
+        </mat-error>
+        <mat-error *ngIf="testForm.controls.address.hasError('maxlength')">
+          address must be max 25 char Long
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="example-form-field">
+        <mat-label>Number</mat-label>
+        <input matInput formControlName="number" type="number">
+         <mat-error *ngIf="testForm.controls.number.hasError('required')">
+          number must required
+        </mat-error>
+        <mat-error *ngIf="testForm.controls.number.hasError('min')">
+          number must be 1-10 char
+        </mat-error>
+        <!-- <mat-error *ngIf="testForm.controls.number.hasError('max')">
+         jkgkjreg
+        </mat-error> -->
+      </mat-form-field>
+
+<mat-radio-group formControlName="mode_of_class" aria-label="How would you attend the classes">
+      <mat-radio-button value="online">online</mat-radio-button>
+      <mat-radio-button value="offline"> offline</mat-radio-button>
+      <mat-error *ngIf="testForm.controls.mode_of_class.hasError('required') && testForm.get('mode_of_class')?.touched">
+         required field
+        </mat-error>
+    </mat-radio-group>
+<br>
+    <mat-radio-group formControlName="where_about_us" aria-label="How did you get to know about us ?">
+      <mat-radio-button value="whatsapp">WhatsApp</mat-radio-button>
+      <mat-radio-button value="instagram">Instagram</mat-radio-button>
+      <mat-radio-button value="others"> Friend or other source</mat-radio-button>
+            <mat-error *ngIf="testForm.controls.where_about_us.hasError('required') && testForm.get('where_about_us')?.touched">
+          required field
+        </mat-error>
+    </mat-radio-group>
+    <br>
+      <button [disabled]="testForm.invalid" mat-flat-button (click)="handlesubmit()" color="primary">submit</button>
+    </mat-card-content>
+    </form>
+
+
+  </mat-card>
+</div>
