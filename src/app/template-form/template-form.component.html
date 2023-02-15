@@ -1,0 +1,35 @@
+<form #contactform="ngForm" (ngSubmit)="onSubmit(contactform)">
+  <label for="firstname">
+    Enter Your First Name
+  </label>
+  <input type="text" name="firstname" #fname="ngModel" required ngModel><br>
+  <div *ngIf="fname.hasError('required') && fname.touched" style="color: red;">
+    firstname required
+  </div>
+
+  <label for="lastname">
+    Enter Your Last Name
+  </label>
+  <input type="text" name="lastname" ngModel><br>
+
+
+  <label for="email">
+    Enter Your email
+  </label>
+  <input type="email" name="email" ngModel><br>
+
+  <p>
+    <label for="gender">gender</label>
+    <input type="radio" value="male" name="gender" ngModel>male
+    <input type="radio" value="female" name="gender" ngModel>female <br>
+  </p>
+
+
+  <select name="country" ngModel id="country">
+    <option [ngValue]="cn.id"*ngFor=" let cn of countryList ">
+      {{cn.country}}
+    </option>
+  </select><br>
+
+  <button type="submit">Submit</button>
+</form>

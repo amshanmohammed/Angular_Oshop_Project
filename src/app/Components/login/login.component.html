@@ -9,13 +9,13 @@
       <mat-card-content>
       <mat-form-field class="example-form-field">
         <mat-label>Email</mat-label>
-        <input matInput formControlName="email" type="email">
-        <mat-error *ngIf="loginForm.controls.email.hasError('required')">
+        <input matInput formControlName="username" type="email">
+        <mat-error *ngIf="loginForm.controls.username.hasError('required')">
            please Enter Email address
         </mat-error>
-        <mat-error *ngIf="loginForm.controls.email.hasError('pattern')">
+        <!-- <mat-error *ngIf="loginForm.controls.username.hasError('pattern')">
           Enter a valid Email address
-        </mat-error>
+        </mat-error> -->
       </mat-form-field>
       <mat-form-field class="example-form-field">
         <mat-label>Password</mat-label>
@@ -23,8 +23,8 @@
         <mat-error *ngIf="loginForm.controls.password.hasError('required')">
           Enter a Password
         </mat-error>
-         <mat-error *ngIf="loginForm.controls.password.hasError('pattern')">
-          Enter a valid Password
+         <mat-error *ngIf="loginForm.controls.password.hasError('passwordStrength') &&  loginForm.controls.password.touched">
+          password must be atleat 8 char
         </mat-error>
       </mat-form-field>
       <button mat-flat-button (click)="login()" color="primary">Login</button>
