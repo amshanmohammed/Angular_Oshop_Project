@@ -6,6 +6,7 @@
   height: 100%;
   background: gray;
   flex-wrap: wrap;
+
   mat-card {
     height: 70%;
     width: 30%;
@@ -29,4 +30,9 @@
       width: 50%;
     }
   }
+}
+
+.login-error-message {
+  color: red;
+  font-style: italic;
 }

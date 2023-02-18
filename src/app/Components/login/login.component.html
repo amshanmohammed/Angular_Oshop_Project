@@ -8,10 +8,10 @@
     <form [formGroup]="loginForm" >
       <mat-card-content>
       <mat-form-field class="example-form-field">
-        <mat-label>Email</mat-label>
+        <mat-label>username</mat-label>
         <input matInput formControlName="username" type="email">
         <mat-error *ngIf="loginForm.controls.username.hasError('required')">
-           please Enter Email address
+           please Enter username
         </mat-error>
         <!-- <mat-error *ngIf="loginForm.controls.username.hasError('pattern')">
           Enter a valid Email address
@@ -27,6 +27,7 @@
           password must be atleat 8 char
         </mat-error>
       </mat-form-field>
+      <span class="login-error-message">{{messageError}}</span>
       <button mat-flat-button (click)="login()" color="primary">Login</button>
     </mat-card-content>
     </form>

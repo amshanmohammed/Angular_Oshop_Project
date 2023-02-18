@@ -12,4 +12,7 @@ export class ApiService {
    return  this.http.post(`${environment.api}/auth/login`, value);
     // return result.toPromise();
   }
+  requestProducts(){
+    return this.http.get(`${environment.api}/products`)
+  }
 }
