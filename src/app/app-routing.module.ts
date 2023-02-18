@@ -1,3 +1,4 @@
+import { ProductsComponent } from './Components/products/products.component';
 import { TemplateFormComponent } from './template-form/template-form.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -19,9 +20,15 @@ const routes: Routes = [
     component: TestComponent,
   },
   {
+    path: 'products',
+    component: ProductsComponent,
+  },
+
+  {
     path: 'template-form',
     component: TemplateFormComponent,
   },
+
   {
     path: '**',
     redirectTo: 'login',

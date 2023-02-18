@@ -9,10 +9,9 @@ export class ApiService {
   constructor(private http: HttpClient) {}
 
   requestLogin(value: any) {
-   return  this.http.post(`${environment.api}/auth/login`, value);
-    // return result.toPromise();
+    return this.http.post(`${environment.api}/auth/login`, value);
   }
-  requestProducts(){
-    return this.http.get(`${environment.api}/products`)
+  requestProducts() {
+    return this.http.get(`${environment.api}/products`);
   }
 }

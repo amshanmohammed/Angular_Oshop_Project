@@ -13,13 +13,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TestComponent } from './Components/test/test.component';
 import { MatRadioModule } from '@angular/material/radio';
 import { TemplateFormComponent } from './template-form/template-form.component';
-
+import { ProductsComponent } from './Components/products/products.component';
+import { MatGridListModule } from '@angular/material/grid-list';
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     TestComponent,
     TemplateFormComponent,
+    ProductsComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,6 +34,7 @@ import { TemplateFormComponent } from './template-form/template-form.component';
     FormsModule,
     MatRadioModule,
     HttpClientModule,
+    MatGridListModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

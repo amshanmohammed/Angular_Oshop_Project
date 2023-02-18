@@ -2,6 +2,7 @@ import { ApiService } from './../../services/api.service';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
+import { Router } from '@angular/router';
 // import { createPasswordStrengthValidator } from 'src/app/utils/utils';
 
 @Component({
@@ -25,19 +26,9 @@ export class LoginComponent implements OnInit, OnDestroy {
       // ),
     ]),
   });
-  constructor(private as: ApiService) {}
+  constructor(private as: ApiService, private router: Router) {}
   ngOnInit(): void {
     this.subscriptions.add(this.loginForm.valueChanges.subscribe(console.log));
-    this.subscriptions.add(
-      this.as.requestProducts().subscribe(
-        (data) => {
-          console.log(data);
-        },
-        (err) => {
-          console.log(err);
-        }
-      )
-    );
   }
 
   login() {
@@ -47,6 +38,8 @@ export class LoginComponent implements OnInit, OnDestroy {
       this.as.requestLogin(user).subscribe(
         (data) => {
           console.log(data);
+                    localStorage.setItem('userDetails', JSON.stringify(data));
+                    this.router.navigate(['products']);
         },
         (err) => {
           this.messageError = err.error.message;
