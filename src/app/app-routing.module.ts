@@ -1,3 +1,4 @@
+import { ProductDetailsComponent } from './Components/product-details/product-details.component';
 import { ProductsComponent } from './Components/products/products.component';
 import { TemplateFormComponent } from './template-form/template-form.component';
 import { NgModule } from '@angular/core';
@@ -22,6 +23,10 @@ const routes: Routes = [
   {
     path: 'products',
     component: ProductsComponent,
+  },
+  {
+    path: 'product-details/:id',
+    component: ProductDetailsComponent,
   },
 
   {

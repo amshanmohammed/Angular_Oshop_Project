@@ -1,3 +1,5 @@
+import { PRODUCTS_API_RESPONSE, Product } from './../Models/app.model';
+import { Observable } from 'rxjs';
 import { environment } from './../../environment/environment';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -11,7 +13,10 @@ export class ApiService {
   requestLogin(value: any) {
     return this.http.post(`${environment.api}/auth/login`, value);
   }
-  requestProducts() {
-    return this.http.get(`${environment.api}/products`);
+  requestProducts(): Observable<PRODUCTS_API_RESPONSE> {
+    return this.http.get(`${environment.api}/products`) as any;
+  }
+  requestProductDetailsById(id:any):Observable<Product>{
+    return this.http.get(`${environment.api}/products/${id}`) as any;
   }
 }

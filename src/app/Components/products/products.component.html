@@ -1,6 +1,6 @@
 <mat-grid-list #grid [cols]="cols" gutterSize="10px">
   <mat-grid-tile *ngFor="let Product of Products">
-    <mat-card>
+    <mat-card (click)="productDetails(Product)">
       <mat-card-content>
         <div class="product-img"><img mat-card-xl-image
             [src]="Product.images[0]" alt="img"></div>

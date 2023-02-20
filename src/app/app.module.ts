@@ -15,6 +15,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { TemplateFormComponent } from './template-form/template-form.component';
 import { ProductsComponent } from './Components/products/products.component';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { ProductDetailsComponent } from './Components/product-details/product-details.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,6 +23,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
     TestComponent,
     TemplateFormComponent,
     ProductsComponent,
+    ProductDetailsComponent,
   ],
   imports: [
     BrowserModule,

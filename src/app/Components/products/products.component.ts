@@ -1,6 +1,9 @@
+import { Product } from './../../Models/app.model';
 import { ApiService } from './../../services/api.service';
 import { Component } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
@@ -9,7 +12,6 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 export class ProductsComponent {
   addToCart: any = [];
   cols: any;
-  temp: any;
   Products: any = [];
   gridByBreakpoint: any = {
     xl: 3,
@@ -20,7 +22,8 @@ export class ProductsComponent {
   };
   constructor(
     private as: ApiService,
-    private breakpointObserver: BreakpointObserver
+    private breakpointObserver: BreakpointObserver,
+    private router: Router
   ) {
     this.breakpointObserver
       .observe([
@@ -52,22 +55,26 @@ export class ProductsComponent {
   }
 
   ngOnInit(): void {
+    this.getAllProducts();
+  }
+  getAllProducts() {
     this.as.requestProducts().subscribe(
       (data) => {
-        this.temp = data;
-        this.Products = this.temp.products;
+        this.Products = data.products;
       },
       (err) => {
         console.log(err);
       }
     );
   }
-
   handleBuyNow(item: any) {
     console.log('item in buy now', item);
   }
   handleAddToCart(item: any) {
     this.addToCart.push(item);
     console.log('items in add to cart', this.addToCart);
+  }
+  productDetails(Product: Product) {
+    this.router.navigate(['/product-details/' + Product.id]);
   }
 }
