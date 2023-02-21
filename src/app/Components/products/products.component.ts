@@ -71,8 +71,9 @@ export class ProductsComponent {
     console.log('item in buy now', item);
   }
   handleAddToCart(item: any) {
-    this.addToCart.push(item);
-    console.log('items in add to cart', this.addToCart);
+    // this.addToCart.push(item);
+    // console.log('items in add to cart', this.addToCart);
+    this.router.navigate(['/cart'])
   }
   productDetails(Product: Product) {
     this.router.navigate(['/product-details/' + Product.id]);

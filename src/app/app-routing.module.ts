@@ -5,7 +5,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './Components/login/login.component';
 import { TestComponent } from './Components/test/test.component';
-
+import { CartComponent } from './Components/cart/cart.component';
+import { AuthGuard } from './guards/auth.guard';
 const routes: Routes = [
   {
     path: '',
@@ -23,10 +24,17 @@ const routes: Routes = [
   {
     path: 'products',
     component: ProductsComponent,
+    canActivate:[AuthGuard]
   },
   {
     path: 'product-details/:id',
     component: ProductDetailsComponent,
+    canActivate:[AuthGuard]
+  },
+  {
+    path: 'cart',
+    component: CartComponent,
+    canActivate:[AuthGuard]
   },
 
   {
@@ -43,6 +51,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule],
+ 
+exports: [RouterModule],
 })
 export class AppRoutingModule {}

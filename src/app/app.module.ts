@@ -16,6 +16,7 @@ import { TemplateFormComponent } from './template-form/template-form.component';
 import { ProductsComponent } from './Components/products/products.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { ProductDetailsComponent } from './Components/product-details/product-details.component';
+import { CartComponent } from './Components/cart/cart.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,6 +25,7 @@ import { ProductDetailsComponent } from './Components/product-details/product-de
     TemplateFormComponent,
     ProductsComponent,
     ProductDetailsComponent,
+    CartComponent,
   ],
   imports: [
     BrowserModule,
