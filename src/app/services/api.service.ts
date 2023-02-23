@@ -1,5 +1,5 @@
 import { PRODUCTS_API_RESPONSE, Product } from './../Models/app.model';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { environment } from './../../environment/environment';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -10,6 +10,7 @@ import { Injectable } from '@angular/core';
 export class ApiService {
   constructor(private http: HttpClient) {}
 
+  dataStream= new Subject<any>()
   requestLogin(value: any) {
     return this.http.post(`${environment.api}/auth/login`, value);
   }

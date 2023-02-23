@@ -73,7 +73,17 @@ export class ProductsComponent {
   handleAddToCart(item: any) {
     // this.addToCart.push(item);
     // console.log('items in add to cart', this.addToCart);
-    this.router.navigate(['/home/cart'])
+    let cart = [];
+    if (localStorage.getItem('cart')) {
+      cart = JSON.parse(localStorage.getItem('cart') as any);
+      cart = [...cart, item];
+      localStorage.setItem('cart', JSON.stringify(cart));
+    } else {
+      cart = [item];
+      localStorage.setItem('cart', JSON.stringify(cart));
+    }
+    this.as.dataStream.next(cart);
+
   }
   productDetails(Product: Product) {
     this.router.navigate(['/home/product-details/' + Product.id]);

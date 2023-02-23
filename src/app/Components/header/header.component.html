@@ -4,5 +4,6 @@
       <i class="mdi mdi-format-title:">    welcome {{user.firstName}}</i>
     </div>
 
+    <button mat-raised-button routerLink="/home/cart" >Cart {{cartItemsLength}}</button>
     <button mat-raised-button  (click)="LogoutUser()">Logout</button>
 </mat-toolbar>
