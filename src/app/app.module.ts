@@ -17,6 +17,9 @@ import { ProductsComponent } from './Components/products/products.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { ProductDetailsComponent } from './Components/product-details/product-details.component';
 import { CartComponent } from './Components/cart/cart.component';
+import { HomeComponent } from './Components/home/home.component';
+import { HeaderComponent } from './Components/header/header.component';
+import {MatToolbarModule} from '@angular/material/toolbar';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,19 +29,22 @@ import { CartComponent } from './Components/cart/cart.component';
     ProductsComponent,
     ProductDetailsComponent,
     CartComponent,
+    HomeComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatCardModule,
-    MatInputModule,
+    MatInputModule, 
     MatButtonModule,
     ReactiveFormsModule,
     FormsModule,
     MatRadioModule,
     HttpClientModule,
     MatGridListModule,
+    MatToolbarModule
   ],
   providers: [],
   bootstrap: [AppComponent],

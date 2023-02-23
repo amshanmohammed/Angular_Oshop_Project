@@ -7,10 +7,11 @@ import { LoginComponent } from './Components/login/login.component';
 import { TestComponent } from './Components/test/test.component';
 import { CartComponent } from './Components/cart/cart.component';
 import { AuthGuard } from './guards/auth.guard';
+import { HomeComponent } from './Components/home/home.component';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'login',
+    redirectTo: '/login',
     pathMatch: 'full',
   },
   {
@@ -22,21 +23,34 @@ const routes: Routes = [
     component: TestComponent,
   },
   {
-    path: 'products',
-    component: ProductsComponent,
-    canActivate:[AuthGuard]
+    path: 'home',
+    component: HomeComponent,
+    canActivate: [AuthGuard],
+    children: [
+      {
+        path: '',
+        redirectTo: '/home/products',
+        pathMatch: 'full',
+      },
+      {
+        path: 'products',
+        component: ProductsComponent,
+      },
+      {
+        path: 'product-details/:id',
+        component: ProductDetailsComponent,
+      },
+      {
+        path: 'cart',
+        component: CartComponent,
+      },
+      {
+        path: '**',
+        redirectTo: '/home/products',
+        pathMatch: 'full',
+      },
+    ],
   },
-  {
-    path: 'product-details/:id',
-    component: ProductDetailsComponent,
-    canActivate:[AuthGuard]
-  },
-  {
-    path: 'cart',
-    component: CartComponent,
-    canActivate:[AuthGuard]
-  },
-
   {
     path: 'template-form',
     component: TemplateFormComponent,
@@ -44,14 +58,14 @@ const routes: Routes = [
 
   {
     path: '**',
-    redirectTo: 'login',
+    redirectTo: '/login',
     pathMatch: 'full',
   },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
- 
-exports: [RouterModule],
+
+  exports: [RouterModule],
 })
 export class AppRoutingModule {}
