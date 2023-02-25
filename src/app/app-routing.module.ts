@@ -23,6 +23,10 @@ const routes: Routes = [
     component: TestComponent,
   },
   {
+    path: 'user-profile',
+    loadChildren: ()=> import('./profile/profile.module').then(m=>m.ProfileModule)
+  },
+  {
     path: 'home',
     component: HomeComponent,
     canActivate: [AuthGuard],

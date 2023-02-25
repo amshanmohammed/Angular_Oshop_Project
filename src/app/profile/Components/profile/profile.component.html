@@ -1,0 +1,35 @@
+<mat-grid-list cols="3" rowHeight="1:1">
+  <mat-grid-tile></mat-grid-tile>
+  <mat-grid-tile>
+    <mat-card>
+      <form [formGroup]="userUpdateForm">
+        <mat-form-field class="example-form-field">
+          <mat-label>username</mat-label>
+          <input formControlName="username" matInput type="text">
+        </mat-form-field><br>
+         <mat-form-field class="example-form-field">
+          <mat-label>First Name</mat-label>
+          <input formControlName="firstName" matInput type="text">
+        </mat-form-field><br>
+        <mat-form-field class="example-form-field">
+          <mat-label>Last Name</mat-label>
+          <input formControlName="lastName" matInput type="text">
+        </mat-form-field><br>
+        <mat-form-field class="example-form-field">
+          <mat-label>Email</mat-label>
+          <input formControlName="email" matInput type="email">
+        </mat-form-field><br>
+
+        <mat-radio-group formControlName="gender" aria-label="Select an option">
+          <mat-label>
+            Gender
+          </mat-label>
+          <mat-radio-button value="male">Male</mat-radio-button>
+          <mat-radio-button value="female">Female</mat-radio-button>
+        </mat-radio-group><br>
+           <button mat-button  style="background:pink;" color="primary">Primary</button>
+      </form>
+    </mat-card>
+  </mat-grid-tile>
+  <mat-grid-tile></mat-grid-tile>
+</mat-grid-list>
