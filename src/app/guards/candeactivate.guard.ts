@@ -13,14 +13,18 @@ import { Observable } from 'rxjs';
 })
 export class CandeactivateGuard implements CanDeactivate<unknown> {
   canDeactivate(
-    component: ProfileComponent
+    component: ProfileComponent,
+    currentRoute: ActivatedRouteSnapshot,
+    currentState: RouterStateSnapshot,
+    nextState?: RouterStateSnapshot
   ):
     | Observable<boolean | UrlTree>
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
     if (component.isUserTouched()) {
-      return confirm(' please save chages');
+      debugger
+      return confirm('please save chages');
     } else {
       return true;
     }
