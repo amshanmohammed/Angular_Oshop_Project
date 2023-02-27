@@ -34,4 +34,8 @@ export class ProfileComponent {
         console.log(res)
       })
   }
+
+  isUserTouched(){
+    return this.userUpdateForm.touched && this.userUpdateForm.dirty
+  }
 }

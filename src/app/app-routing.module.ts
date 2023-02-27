@@ -2,12 +2,13 @@ import { ProductDetailsComponent } from './Components/product-details/product-de
 import { ProductsComponent } from './Components/products/products.component';
 import { TemplateFormComponent } from './template-form/template-form.component';
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes, CanLoad } from '@angular/router';
 import { LoginComponent } from './Components/login/login.component';
 import { TestComponent } from './Components/test/test.component';
 import { CartComponent } from './Components/cart/cart.component';
 import { AuthGuard } from './guards/auth.guard';
 import { HomeComponent } from './Components/home/home.component';
+
 const routes: Routes = [
   {
     path: '',
@@ -24,7 +25,9 @@ const routes: Routes = [
   },
   {
     path: 'user-profile',
-    loadChildren: ()=> import('./profile/profile.module').then(m=>m.ProfileModule)
+    canActivate:[AuthGuard],
+    loadChildren: () =>
+      import('./profile/profile.module').then((m) => m.ProfileModule),
   },
   {
     path: 'home',
