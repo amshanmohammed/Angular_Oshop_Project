@@ -38,4 +38,6 @@ export class ProfileComponent {
   isUserTouched(){
     return this.userUpdateForm.touched
   }
+
+  
 }

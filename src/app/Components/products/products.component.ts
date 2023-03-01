@@ -61,6 +61,9 @@ export class ProductsComponent {
     this.as.requestProducts().subscribe(
       (data) => {
         this.Products = data.products;
+        this.Products.forEach((ele:any) => {
+            ele.launchedDate= this.getRandomDate();
+        });
       },
       (err) => {
         console.log(err);
@@ -83,9 +86,13 @@ export class ProductsComponent {
       localStorage.setItem('cart', JSON.stringify(cart));
     }
     this.as.dataStream.next(cart);
-
   }
   productDetails(Product: Product) {
     this.router.navigate(['/home/product-details/' + Product.id]);
+  }
+  getRandomDate() {
+    const maxDate = Date.now();
+    const timestamp = Math.floor(Math.random() * maxDate);
+    return new Date(timestamp);
   }
 }
