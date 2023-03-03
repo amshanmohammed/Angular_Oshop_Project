@@ -1,7 +1,7 @@
 <mat-toolbar color="primary">
     <div class="">
       <i class="mdi mdi-format-title:">Oshop</i>
-      <i class="mdi mdi-format-title:">    welcome {{user.firstName}}</i>
+      <i class="mdi mdi-format-title:">    welcome {{user.firstName |userNameFormatter:user.gender}}</i>
     </div>
 
     <button mat-raised-button (click)="backToPrevPage()" >back To prev</button>

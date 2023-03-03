@@ -17,6 +17,7 @@ import { CartComponent } from './Components/cart/cart.component';
 import { HomeComponent } from './Components/home/home.component';
 import { HeaderComponent } from './Components/header/header.component';
 import { ApiInterceptor } from './interceptors/api.interceptor';
+import { UserNameFormatterPipe } from './Pipes/user-name-formatter.pipe';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { ApiInterceptor } from './interceptors/api.interceptor';
     CartComponent,
     HomeComponent,
     HeaderComponent,
+    UserNameFormatterPipe,
   ],
   imports: [
     BrowserModule,
